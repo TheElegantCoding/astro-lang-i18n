@@ -1,0 +1,48 @@
+---
+/* eslint-disable astro/no-unused-css-selector */
+type Props = {
+  defaultLanguage?: string;
+  supportedLanguages?: string[];
+};
+
+const { defaultLanguage, supportedLanguages } = Astro.props;
+const shouldRender = supportedLanguages && supportedLanguages.length > 1;
+---
+{shouldRender && (
+  <style is:inline>
+    html { visibility: hidden; opacity: 0; }
+  </style>
+  <script
+    is:inline
+    id='i18n-redirect'
+    data-default-language={defaultLanguage}
+    data-supported-languages={supportedLanguages.join(',')}
+  >
+    const script = document.querySelector('#i18n-redirect')
+    const dataDefaultLanguage = script.getAttribute('data-default-language');
+    const dataSupportedLanguages = script.getAttribute('data-supported-languages').split(',');
+
+    const getBrowserLang = () => {
+      const browserLang = window.navigator.language.split('-')[0];
+      return dataSupportedLanguages.includes(browserLang) ? browserLang : dataDefaultLanguage;
+    };
+
+    const userLanguage = getBrowserLang();
+    const currentUrl = new URL(window.location.href);
+    const currentPath = currentUrl.pathname;
+    const pathSegments = currentPath.split('/').filter(Boolean);
+    const langInUrl = dataSupportedLanguages.includes(pathSegments[0]) ? pathSegments[0] : null;
+    const storageLanguage = localStorage.getItem('language')
+
+    if (!storageLanguage && userLanguage !== langInUrl) {
+      localStorage.setItem('language', userLanguage);
+      const newUrl = new URL(window.location.href);
+      const cleanPath = langInUrl ? currentPath.replace(`/${langInUrl}`, '') : currentPath;
+      newUrl.pathname = `/${userLanguage}${cleanPath}`;
+      window.location.replace(newUrl);
+    } else {
+      document.documentElement.style.visibility = 'visible';
+      document.documentElement.style.opacity = '1';
+    }
+  </script>
+)}
