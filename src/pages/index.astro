@@ -1,6 +1,7 @@
 ---
 import ChangeLanguage from 'src/component/change_language.astro';
-import { supportedLanguages } from 'src/configuration/language';
+import Internationalization from 'src/component/internationalization.astro';
+import { defaultLanguage, supportedLanguages } from 'src/configuration/language';
 import { landingLocale } from 'src/locale/landing_locale';
 import { getI18n, getStaticLanguage } from 'src/util/i18n';
 import { interpolate } from 'src/util/interpolate';
@@ -11,6 +12,10 @@ const { language } = Astro.locals;
 const i18n = getI18n(language, landingLocale);
 ---
 <html lang={language}>
+  <Internationalization
+    defaultLanguage={defaultLanguage}
+    supportedLanguages={supportedLanguages}
+  />
   <h1>{interpolate(i18n.title, { projectName: 'Astro' })}</h1>
   <ChangeLanguage />
 </html>
