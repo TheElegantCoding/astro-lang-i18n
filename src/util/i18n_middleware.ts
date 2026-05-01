@@ -16,8 +16,9 @@ const i18nMiddleware = async ({
   supportedLanguages
 }: i18nMiddlewareParams) => {
   const urlLang = context.url.pathname.split('/')[1] ?? '';
+  const currentLanguage = getCurrentLanguage(urlLang, defaultLanguage, supportedLanguages);
 
-  context.locals.language = getCurrentLanguage(urlLang, defaultLanguage, supportedLanguages);
+  context.locals.language = currentLanguage;
 
   return next();
 };
