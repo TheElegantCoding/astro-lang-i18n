@@ -31,6 +31,17 @@ const replaceLanguageInUrl = (url: string, oldLanguage: string, newLanguage: str
   return urlObject.toString();
 };
 
+const removeLanguageFromUrl = (url: string, language: string): string => {
+  const cleanUrl = url.trim();
+  const segments = cleanUrl.split('/').filter(Boolean);
+
+  if (segments.length > 0 && segments[0] === language) {
+    segments.shift();
+  }
+
+  return segments.join('/');
+};
+
 const changeLanguage = (language: string) => {
   const currentPath = window.location.pathname;
   const pathSegments = currentPath.split('/').filter(Boolean);
@@ -50,5 +61,6 @@ export {
   getStaticLanguage,
   getCurrentLanguage,
   getLanguageFromUrl,
-  replaceLanguageInUrl
+  replaceLanguageInUrl,
+  removeLanguageFromUrl
 };
