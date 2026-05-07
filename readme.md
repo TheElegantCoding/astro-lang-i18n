@@ -10,7 +10,7 @@
 <img src="./.github/asset/illustration/divider.svg" alt="divider" width="100%" />
 
 <pre align="center">
-  <a href="#installation">📦 SETUP</a> • <a href="#configuration">⚙️ CONFIGURATION</a> • <a href="#features">🛰️ USAGE</a>
+  <a href="#installation">📦 SETUP</a> • <a href="#features">🛰️ USAGE</a>
 </pre>
 
 <img src="./.github/asset/illustration/divider.svg" alt="divider" width="100%" />
