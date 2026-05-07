@@ -1,7 +1,8 @@
+import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  integrations: [],
+  integrations: [sitemap()],
   output: 'static',
   site: 'http://localhost:4321',
   server: {
