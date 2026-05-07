@@ -1,5 +1,3 @@
-import { i18nSetup } from 'src/util/i18n_middleware';
-
 import { getDynamicLangRoute } from './util/dynamic_path';
 import {
   getI18n,
@@ -7,6 +5,7 @@ import {
   getLanguageFromUrl,
   removeLanguageFromUrl
 } from './util/i18n';
+import { i18nSetup } from './util/i18n_middleware';
 import { interpolate } from './util/interpolate';
 import { getStaticLanguage } from './util/static_path';
 
