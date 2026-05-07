@@ -1,0 +1,16 @@
+---
+import AboutUsPage from 'src/component/about_us_page.astro';
+import { defaultLanguage } from 'src/configuration/language';
+import { landingRouter } from 'src/router/landing_router';
+import { getDynamicLangRoute } from 'src/util/static_path';
+
+export const getStaticPaths = () => {
+  return getDynamicLangRoute({
+    mappings: { about_us: 'aboutUs' },
+    router: landingRouter,
+    defaultLang: defaultLanguage,
+    excludeDefaultLang: true
+  });
+};
+---
+<AboutUsPage />

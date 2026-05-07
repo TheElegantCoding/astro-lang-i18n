@@ -1,0 +1,11 @@
+---
+import { landingLocale } from 'src/locale/landing_locale';
+import { getI18n } from 'src/util/i18n';
+import { interpolate } from 'src/util/interpolate';
+
+const { language } = Astro.locals;
+const i18n = getI18n(language, landingLocale);
+---
+<html lang={language}>
+  <h1>{interpolate(i18n.title, { projectName: 'Astro' })}</h1>
+</html>

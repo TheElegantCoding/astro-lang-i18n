@@ -1,0 +1,10 @@
+---
+import { landingLocale } from 'src/locale/landing_locale';
+import { getI18n } from 'src/util/i18n';
+
+const { language } = Astro.locals;
+const i18n = getI18n(language, landingLocale);
+---
+<html lang={language}>
+  <h1>{i18n.aboutUsTitle}</h1>
+</html>
