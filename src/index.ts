@@ -1,19 +1,19 @@
+import { i18nSetup } from 'src/util/i18n_middleware';
+
 import {
   getI18n,
-  changeLanguage,
-  getStaticLanguage,
   getCurrentLanguage,
-  getLanguageFromUrl,
-  replaceLanguageInUrl
+  getLanguageFromUrl
 } from './util/i18n';
 import { interpolate } from './util/interpolate';
 
+import type { i18nSetupParams } from './util/i18n_middleware';
+
+export type { i18nSetupParams };
 export {
   getI18n,
+  i18nSetup,
   interpolate,
-  changeLanguage,
-  getStaticLanguage,
   getCurrentLanguage,
-  getLanguageFromUrl,
-  replaceLanguageInUrl
+  getLanguageFromUrl
 };
