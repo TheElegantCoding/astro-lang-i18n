@@ -43,6 +43,7 @@
     "eslint-config-universal-code": "^1.0.19",
     "gitlys": "^2.1.4",
     "glob": "^13.0.6",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "4.1.5"
   }
 }
