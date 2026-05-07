@@ -1,5 +1,5 @@
 /* eslint-disable max-statements */
-import { removeLanguageFromUrl } from 'src/util/i18n';
+import { removeLanguageFromUrl } from './i18n';
 
 type GetDynamicLangRouteParameter = {
   defaultLang?: string;
