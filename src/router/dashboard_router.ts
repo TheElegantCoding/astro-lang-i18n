@@ -1,6 +1,6 @@
 const dashboardRouter = {
   en: {
-    settings: '/en/administrador/settings'
+    settings: '/administrador/settings'
   },
   es: {
     settings: '/es/dashboard/configuracion'
