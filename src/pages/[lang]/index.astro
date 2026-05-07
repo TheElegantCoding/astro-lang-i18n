@@ -1,21 +1,16 @@
 ---
-import ChangeLanguage from 'src/component/change_language.astro';
-import Internationalization from 'src/component/internationalization.astro';
-import { defaultLanguage, supportedLanguages } from 'src/configuration/language';
-import { landingLocale } from 'src/locale/landing_locale';
-import { getI18n, getStaticLanguage } from 'src/util/i18n';
-import { interpolate } from 'src/util/interpolate';
+import LandingPage from 'src/component/landing_page.astro';
+import { defaultLanguage } from 'src/configuration/language';
+import { landingRouter } from 'src/router/landing_router';
+import { getDynamicLangRoute } from 'src/util/static_path';
 
-export const getStaticPaths = () => { return getStaticLanguage(supportedLanguages); };
-
-const { language } = Astro.locals;
-const i18n = getI18n(language, landingLocale);
+export const getStaticPaths = () => {
+  return getDynamicLangRoute({
+    mappings: { home: 'home' },
+    router: landingRouter,
+    defaultLang: defaultLanguage,
+    excludeDefaultLang: true
+  });
+};
 ---
-<html lang={language}>
-  <Internationalization
-    defaultLanguage={defaultLanguage}
-    supportedLanguages={supportedLanguages}
-  />
-  <h1>{interpolate(i18n.title, { projectName: 'Astro' })}</h1>
-  <ChangeLanguage />
-</html>
+<LandingPage />
