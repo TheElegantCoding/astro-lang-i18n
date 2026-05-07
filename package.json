@@ -13,7 +13,11 @@
     "clean-code",
     "astro",
     "astro-template",
-    "astro-component"
+    "astro-component",
+    "astro-i18n",
+    "i18n",
+    "internationalization",
+    "localization"
   ],
   "type": "module",
   "files": ["index.ts", "src"],
