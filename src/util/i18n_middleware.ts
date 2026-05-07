@@ -1,5 +1,6 @@
 import { defineMiddleware } from 'astro:middleware';
-import { getCurrentLanguage } from 'src/util/i18n';
+
+import { getCurrentLanguage } from './i18n';
 
 import type { APIContext, MiddlewareNext } from 'astro';
 
