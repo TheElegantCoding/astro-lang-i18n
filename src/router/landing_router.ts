@@ -1,15 +1,15 @@
 const landingRouter = {
   es: {
-    principal: '/es',
-    aboutUs: '/es/sobre-nosotros'
+    aboutUs: '/es/sobre-nosotros',
+    home: '/es'
   },
   en: {
-    principal: '/en',
-    aboutUs: '/en/about-us'
+    aboutUs: '/en/about-us',
+    home: '/en'
   },
   fr: {
-    principal: '/fr',
-    aboutUs: '/fr/a-propos-de-nous'
+    aboutUs: '/fr/a-propos-de-nous',
+    home: '/fr'
   }
 };
 
