@@ -30,6 +30,7 @@
     "postinstall": "bunx gitlys init",
     "dev": "astro dev",
     "build": "astro build",
+    "test": "vitest run",
     "preview": "astro preview",
     "release": "bun run build && bunx gitlys release"
   },
