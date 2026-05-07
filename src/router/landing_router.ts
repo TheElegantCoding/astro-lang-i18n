@@ -4,8 +4,8 @@ const landingRouter = {
     home: '/es'
   },
   en: {
-    aboutUs: '/en/about-us',
-    home: '/en'
+    aboutUs: '/about-us',
+    home: '/'
   },
   fr: {
     aboutUs: '/fr/a-propos-de-nous',
